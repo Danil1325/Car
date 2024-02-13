@@ -12,7 +12,9 @@ class CarController extends Controller
      */
     public function index()
     {
-        //
+        $car= Car::all();
+        return view('index',['car'=>$car]);
+        
     }
 
     /**
