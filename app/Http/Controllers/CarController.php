@@ -12,7 +12,8 @@ class CarController extends Controller
      */
     public function index()
     {
-        //
+        $cars = Car::all();
+        return view('cars.index', compact('cars'));
     }
 
     /**
@@ -20,7 +21,7 @@ class CarController extends Controller
      */
     public function create()
     {
-        //
+        return view('cars.create');
     }
 
     /**
@@ -28,7 +29,16 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'brand' => 'required',
+            'model' => 'required',
+            'year' => 'required|numeric',
+        ]);
+
+        Car::create($request->all());
+
+        return redirect('/cars')->with('success', 'Car added successfully!');
+
     }
 
     /**
@@ -36,7 +46,7 @@ class CarController extends Controller
      */
     public function show(Car $car)
     {
-        //
+        return view('cars.show', compact('car'));
     }
 
     /**
@@ -44,7 +54,8 @@ class CarController extends Controller
      */
     public function edit(Car $car)
     {
-        //
+        return view('cars.edit', compact('car'));
+
     }
 
     /**
@@ -52,7 +63,16 @@ class CarController extends Controller
      */
     public function update(Request $request, Car $car)
     {
-        //
+        $request->validate([
+            'brand' => 'required',
+            'model' => 'required',
+            'year' => 'required|numeric',
+            'color' => 'required',
+        ]);
+
+        $car->update($request->all());
+
+        return redirect('/cars')->with('success', 'Car updated successfully!');
     }
 
     /**
@@ -60,6 +80,8 @@ class CarController extends Controller
      */
     public function destroy(Car $car)
     {
-        //
+        $car->delete();
+
+        return redirect('/cars')->with('success', 'Car deleted successfully!');
     }
 }
