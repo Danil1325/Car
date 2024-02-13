@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+namespace App\Http\Controllers;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+class CarController extends Controller
+{
+    public function index() {
+        $cars=Car::all();
+        return view('car.index',['car'=>$users]);
+    }
+}
