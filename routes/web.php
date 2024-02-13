@@ -14,11 +14,5 @@ use Illuminate\Http\Request;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-class CarController extends Controller
-{
-    public function index() {
-        $cars=Car::all();
-        return view('car.index',['car'=>$users]);
-    }
-}
+Route::redirect('/','/cars');
+Route::get('/cars',[UserController::class,'index']);
