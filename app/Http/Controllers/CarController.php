@@ -12,7 +12,10 @@ class CarController extends Controller
      */
     public function index()
     {
-        //
+          $users=User::all();
+        return view(
+            'cars.index',['cars'=>$users]
+        );
     }
 
     /**
