@@ -14,7 +14,7 @@ class CarController extends Controller
     {
           $cars=Car::all();
           return view(
-           'cars.index',['cars'=>$users]
+           'cars.index',['cars'=>$cars]
         );
 
     }
