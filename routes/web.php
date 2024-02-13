@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Http\Controllers\CarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +15,4 @@ use Illuminate\Http\Request;
 |
 */
 Route::redirect('/','/cars');
-Route::get('/cars',[UserController::class,'index']);
+Route::get('/cars',[CarController::class,'index']);
