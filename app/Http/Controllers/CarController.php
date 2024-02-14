@@ -24,7 +24,8 @@ class CarController extends Controller
      */
     public function create()
     {
-        //
+         $cars=Car::all();
+        return view('cars.create',['cars'=>$users]);
     }
 
     /**

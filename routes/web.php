@@ -15,4 +15,4 @@ use App\Http\Controllers\CarController;
 |
 */
 Route::redirect('/','/cars');
-Route::get('/cars',[CarController::class,'index']);
+Route::get('/cars',[CarController::class,'index'])->name('cars.index');
